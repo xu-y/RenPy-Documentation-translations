@@ -163,8 +163,8 @@
 <p>缩进用来把命令划分成<em class="dfn">区块</em>。一个区块一般包含好几行，通常是好几个命令。划分区块采用的规则是：</p>
 <ul class="simple">
 <li>一个区块从某一行的行首开始。</li>
-<li>.一个区块从某一个缩进量比前一行多的行开始。</li>
-<li>所有在同一个区块里的逻辑行必须由相同的缩进。</li>
+<li>新的区块从某一个缩进量比前一行多的行开始。</li>
+<li>所有在同一个区块里的逻辑行必须有相同的缩进。</li>
 <li>当读取到一个比前一行缩进量少的行时，该区块结束。</li>
 </ul>
 <p>缩进在Ren'Py里十分重要，如果缩进不对，会导致语法和逻辑错误。同时，使用缩进来处理区块使得我们能够轻而易举地看出脚本的结构。</p>
@@ -191,14 +191,12 @@
 <dd><p>一个名称以字母或者下划线开头，然后后面可以是更多的字母、数字和下划线。在Ren'Py中，从U+00a0到U+fffd的unicode字符会被认为是字母。</p>
 <p>所有以下划线开头的名称，除非特别指出，否则就是为Ren'Py内部使用而预留的。当一个名称以 __ 开头但是没有以 __ 结尾时，它仅在该文件范围内有效。</p>
 </dd>
-</dl>
-<p><em class="dfn">图像名称</em></p>
-<blockquote>
-<div><p>一个<em class="dfn">图像名称</em>由一个或多个名称组成，用空格分开。图像名称的第一个部分被称为
+<dt><em class="dfn">图像名称</em></dt>
+<dd><p>一个<em class="dfn">图像名称</em>由一个或多个名称组成，用空格分开。图像名称的第一个部分被称为
 <em class="dfn">图像标记</em>。之后的部分被称为<em class="dfn">图像属性</em>。</p>
 <p>比如说，看看这个图像名称吧。<tt class="docutils literal"><span class="pre">mary</span> <span class="pre">beach</span> <span class="pre">night</span> <span class="pre">happy</span></tt>。图像标记是<tt class="docutils literal"><span class="pre">mary</span></tt>，图像属性是<tt class="docutils literal"><span class="pre">mary</span></tt>，
 <tt class="docutils literal"><span class="pre">beach</span></tt>，和<tt class="docutils literal"><span class="pre">night</span></tt>。</p>
-</div></blockquote>
+</dd>
 <dl class="docutils">
 <dt><em class="dfn">字符串</em></dt>
 <dd><p class="first">字符串由引号开始（`，'，&quot;之一），以相同的引号结束。</p>
@@ -287,7 +285,7 @@
 <div class="highlight-renpy"><div class="highlight"><pre><span class="n">config</span><span class="o">.</span><span class="n">screen_width</span>
 </pre></div>
 </div>
-<p class="last">是一个域通道，由一个变量（config）和后面的域名组成。</p>
+<p class="last">是一个域通道，由一个变量（config）和后面的域名（screen_width）组成。</p>
 </dd>
 <dt><em class="dfn">调用</em></dt>
 <dd><p class="first">Python表达式可以调用一个返回某个值的函数。它们由一个表达式开始，然后是一个左括号，一些由逗号分隔的参数，一个右括号。参数由位置参数和关键字参数组成。位置参数就是python表达式，关键字参数的格式是“关键字=值”。如：</p>
@@ -304,7 +302,7 @@
 <dl class="function">
 <dt id="Sample">
 <tt class="descname">Sample</tt><big>(</big><em>name</em>, <em>delay</em>, <em>position=(0</em>, <em>0)</em>, <em>**properties</em><big>)</big><a class="headerlink" href="#Sample" title="Permalink to this definition">¶</a></dt>
-<dd><p>这是一个<s>栗</s>例子函数，实际上并不存在，我们这里拿这个函数作为<s>栗</s>例子</p>
+<dd><p>这是一个函数示例，实际上并不存在，我们这里拿这个函数作为<s>栗</s>例子</p>
 </dd></dl>
 
 <p>这个函数</p>
