@@ -189,7 +189,7 @@
 <dl class="function">
 <dt id="renpy.call_in_new_context">
 <tt class="descclassname">renpy.</tt><tt class="descname">call_in_new_context</tt><big>(</big><em>label</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#renpy.call_in_new_context" title="Permalink to this definition">¶</a></dt>
-<dd><p>该代码将创建一个新的语境，然后执行此标签的内容。在新的语境中，回滚是无效的。</p>
+<dd><p>该代码将创建一个新的语境，然后执行此标签的内容。在新的语境中，回滚是无效的。（如果这样做，会使你回到原来的语境，而不是实现回滚。）</p>
 <p>使用此函数可以在一个交互中开始第二个交互。</p>
 </dd></dl>
 
@@ -197,6 +197,15 @@
 <dt id="renpy.get_all_labels">
 <tt class="descclassname">renpy.</tt><tt class="descname">get_all_labels</tt><big>(</big><big>)</big><a class="headerlink" href="#renpy.get_all_labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>返回所有在程序中定义的标签，包括内部库定义的标签。</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="renpy.get_return_stack">
+<tt class="descclassname">renpy.</tt><tt class="descname">get_return_stack</tt><big>(</big><big>)</big><a class="headerlink" href="#renpy.get_return_stack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list giving the current return stack. The return stack is a
+list of statement names.</p>
+<p>The statement names will be strings (for labels), or opaque tuples (for
+non-label statements).</p>
 </dd></dl>
 
 <dl class="function">
@@ -225,6 +234,15 @@
 <dt id="renpy.seen_label">
 <tt class="descclassname">renpy.</tt><tt class="descname">seen_label</tt><big>(</big><em>label</em><big>)</big><a class="headerlink" href="#renpy.seen_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>若指定标签已经被执行过至少一次，返回True，否则返回False。这个函数可以用来解锁场景回想的鉴赏。</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="renpy.set_return_stack">
+<tt class="descclassname">renpy.</tt><tt class="descname">set_return_stack</tt><big>(</big><em>stack</em><big>)</big><a class="headerlink" href="#renpy.set_return_stack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current return stack. The return stack is a list of statement
+names.</p>
+<p>Statement names may be strings (for labels) or opaque tuples (for
+non-label statements).</p>
 </dd></dl>
 
 </div>
