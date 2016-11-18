@@ -1,5 +1,10 @@
 
 <!DOCTYPE html>
+<!-- 文本大体弄了弄，然而发现页面和旧版不一样
+图片已经加进去了，但是其他的配置无力，并不懂html
+现在文本、超链接、图片大致可以显示，但是页面完全崩坏
+求各位dalao协助啊 QAQ -->
+<!-- 另外目录部分没有翻译，文档部分从246行开始 -->
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -238,300 +243,263 @@
     <div class="col-md-9 content">
       
   <div class="section" id="gui-customization-guide">
-<span id="gui"></span><h1>GUI Customization Guide<a class="headerlink" href="#gui-customization-guide" title="Permalink to this headline"> link</a></h1>
-<p>Ren'Py features a GUI system that (we hope) looks attractive out of the box,
-can be customized somewhat, and can be replaced entirely if necessary. This
-page explains how to do simple and intermediate levels of GUI customization.</p>
-<p>For more advanced customization, please take a look at the documentation for
-<a class="reference internal" href="style.html#styles"><span class="std std-ref">styles</span></a> (including the list of <a class="reference internal" href="style_properties.html#style-properties"><span class="std std-ref">style properties</span></a>
-and <a class="reference internal" href="screens.html#screens"><span class="std std-ref">screens</span></a> (including
-<a class="reference internal" href="screen_actions.html#screen-actions"><span class="std std-ref">screen actions</span></a> and <a class="reference internal" href="screen_special.html#screen-special"><span class="std std-ref">special screens</span></a>).</p>
-<p>This assumes that you're using a new-style Ren'Py GUI (contained in the gui.rpy
-file). Older GUIs (that use the screens.rpy file) should be treated as advanced
-gui customization for the purposes of this guide.</p>
+<span id="gui"></span><h1>图形用户界面(GUI)定制指南<a class="headerlink" href="#gui-customization-guide" title="Permalink to this headline"> link</a></h1>
+<p>Ren'Py提供了一个有新意的、具有吸引力的图形用户界面系统（以下简称GUI）,
+该系统允许用户进行个性化定制，在必要的时候甚至可以完全替代原有的界面。
+这里展示了如何对GUI进行简单的和一般程度的定制。</p>
+<p>如果希望进行更深层的高级定制，请参考以下文档：
+<a class="reference internal" href="style.html#styles"><span class="std std-ref">样式文档</span></a> （包括 <a class="reference internal" href="style_properties.html#style-properties"><span class="std std-ref">样式属性文档</span></a>
+以及 <a class="reference internal" href="screens.html#screens"><span class="std std-ref">视屏和视屏语言</span></a> （包括
+<a class="reference internal" href="screen_actions.html#screen-actions"><span class="std std-ref">视屏操作，值和函数</span></a>以及<a class="reference internal" href="screen_special.html#screen-special"><span class="std std-ref">有特殊含义的视屏</span></a>).</p>
+<p>这意味着您要使用新版的Ren'Py GUI（包含在gui.rpy文件内）。
+之前版本的GUI（使用screens.rpy文件的版本）将被作为GUI的高级定制配置文件。</p>
 <div class="section" id="simple-gui-customization">
-<h2>Simple GUI Customization<a class="headerlink" href="#simple-gui-customization" title="Permalink to this headline"> link</a></h2>
-<p>There are a few simple pieces of GUI customization that make sense for
-all but the simplest visual novels. What these customizations have in
-common is that they do not require editing gui.rpy. These customizations
-change the GUI somewhat, but do not drastically change the look of the
-GUI.</p>
+<h2>简单的GUI定制<a class="headerlink" href="#simple-gui-customization" title="Permalink to this headline"> link</a></h2>
+<p>这里列举了几个简单的GUI定制方法，它们对几乎所有的视觉小说类游戏都适用。
+这些定制方法的共同点在于，它们都不需要手动修改gui.rpy文件。
+另外，尽管它们或多或少地改变了外观，但没有真正明显地修改GUI。</p>
 <div class="section" id="change-size-and-colors">
-<h3>Change Size and Colors<a class="headerlink" href="#change-size-and-colors" title="Permalink to this headline"> link</a></h3>
-<p>The easiest thing to change about the GUI is to change the size and
-color of the GUI. Ren'Py will prompt you to make these choices when
-you first create a project, but choosing &quot;Change/Update GUI&quot; in the
-launcher will let you change your choice.</p>
-<p>When changing the GUI through the launcher, Ren'Py will prompt if you
-want to simply change the launcher, or update gui.rpy. Both choices
-will overwrite most image files, and overwriting gui.rpy will get rid
-of changes to that file.</p>
-<p>As a result, you probably want to do this before any other customization.</p>
-<p>Ren'Py will prompt for the default resolution of the project, and then
-also for the color scheme to use. Once you select those, it will update
-the GUI to match your choices.</p>
+<h3>改变大小和颜色<a class="headerlink" href="#change-size-and-colors" title="Permalink to this headline"> link</a></h3>
+<p>最简单的操作就是修改GUI的大小和颜色。在你创建新工程时，Ren'Py会提供
+一个设置向导，以选项的形式对GUI进行快速设置。而在创建之后，你也可以通过
+点击&quot;调整/更新GUI&quot;按钮，来修改之前的选择。</p>
+<p>当在编辑器中修改GUI时，Ren'Py会提示您选择仅在编辑器中实施改变，或者
+更新gui.rpy文件。两种选择都会重写大部分图像文件，而重写gui.rpy文件将能够
+摒除对该文件的修改。</p>
+<p>因此，在其他的定制设置之前，你可能想要首先进行这种修改。</p>
+<p>Ren'Py首先会开始对工程默认分辨率的设置，然后是主题颜色等。一旦你做出了
+选择，它将会按照你的设置来更新GUI。</p>
 </div>
 <div class="section" id="options-rpy">
 <h3>Options.rpy<a class="headerlink" href="#options-rpy" title="Permalink to this headline"> link</a></h3>
-<p>There are a couple of variables in options.rpy that are used by the
-gui code.</p>
+<p>在options.rpy文件中，有几个变量适用于GUI代码。</p>
 <dl class="docutils">
 <dt><a class="reference internal" href="config.html#var-config.name"><code class="xref std std-var docutils literal"><span class="pre">config.name</span></code></a></dt>
-<dd>A string giving a human-readable name for the game. This is used as the
-window title, and throughout the GUI wherever the title of the
-game is needed.</dd>
+<dd>该字符串即是游戏的名称。
+它将被用于窗口标题，以及其他在GUI中需要使用标题的地方。</dd>
 <dt><code class="xref std std-var docutils literal"><span class="pre">gui.show_name</span></code></dt>
-<dd>This should be set to False to hide the title and version number from
-the main menu. (Say, because the title is &quot;baked into&quot; the main menu
-image.)</dd>
+<dd>如果设置为False，则游戏主菜单将不会显示游戏名称和版本号。
+（如果有需要的话请修改，因为游戏名称就像被&quot;烙&quot;在主菜单图片上一样。）</dd>
 <dt><a class="reference internal" href="config.html#var-config.version"><code class="xref std std-var docutils literal"><span class="pre">config.version</span></code></a></dt>
-<dd>A string giving the version of the game. This is presented to the
-user in various places.</dd>
+<dd>该字符串指定了游戏的版本号。它将在很多个地方展示。</dd>
 <dt><code class="xref std std-var docutils literal"><span class="pre">gui.about</span></code></dt>
-<dd>Additional text that is added to the about screen. If you want multiple
-paragraphs of credits, \n\n can be used to separate the paragraphs.</dd>
+<dd>在“游戏信息”视屏的附加说明文字。如果你需要多段说明，可以用\n\n来分割段落。</dd>
 </dl>
-<p>Here's an example of these defines:</p>
-<div class="highlight-renpy"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s1">&#39;Old School High School&#39;</span><span class="p">)</span>
+<p>一个关于这些配置的例子：</p>
+<div class="highlight-renpy"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s1">&#39;守旧中学&#39;</span><span class="p">)</span>
 
 <span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="n">show_name</span> <span class="o">=</span> <span class="bp">True</span>
 
 <span class="k">define</span> <span class="n">config</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span>
 
-<span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="n">about</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Created by PyTom.</span><span class="se">\n\n</span><span class="s2">High school backgrounds by Mugenjohncel.&quot;</span><span class="p">)</span>
+<span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="n">about</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;作者：PyTom</span><span class="se">\n\n</span><span class="s2">中学背景由Mugenjohncel设计&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For convenience, it might make sense to define gui.about using a triple-quoted
-string, in which case line endings are respected.</p>
+<p>出于方便，在定义gui.about时也可以用三组引号的方式进行，此时应当特别留意行末的情况。例如：</p>
 <div class="highlight-renpy"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="n">about</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
-<span class="s2">Created by PyTom.</span>
+<span class="s2">作者：PyTom</span>
 
-<span class="s2">High school backgrounds by Mugenjohncel.&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="s2">中学背景由Mugenjohncel设计&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="game-and-main-menu-background-images">
-<h3>Game and Main Menu Background Images<a class="headerlink" href="#game-and-main-menu-background-images" title="Permalink to this headline"> link</a></h3>
-<p>The images used by the GUI can be found in the game/gui directory,
-which can be opened by choosing &quot;Open Directory: gui&quot; from the
-launcher. The relevant files are:</p>
+<h3>游戏和主菜单背景图像<a class="headerlink" href="#game-and-main-menu-background-images" title="Permalink to this headline"> link</a></h3>
+<p>GUI使用的图像位于game/gui目录中，
+可以通过点击编辑器&quot;打开目录&quot;中的gui文件夹来快速访问。
+相关的文件包括：</p>
 <dl class="docutils">
 <dt>gui/main_menu.png</dt>
-<dd>A file that contains an image that is used in the background of
-all screens of the main menu.</dd>
+<dd>此图片文件将被用作主菜单的所有视屏的背景图像。</dd>
 <dt>gui/game_menu.png</dt>
-<dd>A file that contains an image that is used in the background of
-all screens of the game menu.</dd>
+<dd>此图片文件将被用作游戏菜单的所有视屏的背景图像。</dd>
 </dl>
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="_images/easy_main_menu.jpg"><img alt="_images/easy_main_menu.jpg" src="_images/easy_main_menu.jpg" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">The main menu, with only gui/main_menu.png replaced.</span></p>
+<p class="caption"><span class="caption-text">仅替换gui/main_menu.png时的主菜单效果</span></p>
 </div>
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="_images/easy_game_menu.jpg"><img alt="_images/easy_game_menu.jpg" src="_images/easy_game_menu.jpg" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">The about screen can be part of the game menu (using gui/game_menu.png
-as the background) or the main menu (using gui/main_menu.png as the
-background). Both can be set to the same image.</span></p>
+<p class="caption"><span class="caption-text">游戏信息视屏(About)可以作为游戏菜单的一部分（使用gui/game_menu.png作为背景图像）
+或者作为主菜单的一部分（使用gui/main_menu.png作为背景图像）
+它们可以设置为同一张图片。</span></p>
 </div>
 </div>
 <div class="section" id="window-icon">
-<h3>Window Icon<a class="headerlink" href="#window-icon" title="Permalink to this headline"> link</a></h3>
-<p>The window icon is the icon that is displayed (in places like the Windows
-task bar and Macintosh dock) by a running application.</p>
-<p>The window icon can be changed by replacing gui/window_icon.png.</p>
-<p>Note that this only changes the icon used by the running game. To change
-the icon used by Windows .exe files and Macintosh applications, see the
-<a class="reference internal" href="build.html#special-files"><span class="std std-ref">build documentation</span></a>.</p>
+<h3>窗口图标<a class="headerlink" href="#window-icon" title="Permalink to this headline"> link</a></h3>
+<p>窗口图标是在运行程序时展示的图标（例如在Windows任务栏或是MacOS的停靠栏）</p>
+<p>通过替换gui/window_icon.png可以改变窗口图标。</p>
+<p>注意，这只会改变运行时展示的图标。要想改变程序的图标，
+例如Windows中exe文件，或MacOS中应用的图标，请参考
+<a class="reference internal" href="build.html#special-files"><span class="std std-ref">构建发布包-特殊文件</span></a>.</p>
 </div>
 </div>
 <div class="section" id="intermediate-gui-customization">
-<h2>Intermediate GUI Customization<a class="headerlink" href="#intermediate-gui-customization" title="Permalink to this headline"> link</a></h2>
-<p>Next, we will demonstrate the intermediate level of GUI customization.
-At the intermediate level, it's possible to change the colors, fonts,
-and images used by the game. In general, intermediate customization
-keeps the screens mostly the same, with buttons and bars in the same
-places, although modifying the screens to add new functionality
-is certainly possible.</p>
-<p>Many of these changes involve editing variables in gui.rpy. For example,
-to increase the dialogue font size, find the line that reads:</p>
+<h2>一般的GUI定制<a class="headerlink" href="#intermediate-gui-customization" title="Permalink to this headline"> link</a></h2>
+<p>接下来，我们会展示一般程度的（或者说是中级的）GUI定制。
+在这种情况下，我们可以调整颜色、字体以及图片等游戏内容。
+通常，在一般的定制下，视屏大都保持了相似性，按钮、滑块等也都在同样的位置。
+当然，对视屏进行调整或者增加新的功能也都是可以的。</p>
+<p>这些调整很多都通过对gui.rpy中的变量进行修改来实现。
+例如，要想调整对话字体的大小，则可以寻找下面的行：</p>
 <div class="highlight-renpy"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="n">font_size</span> <span class="o">=</span> <span class="mi">22</span>
 </pre></div>
 </div>
-<p>and increase or decrease it, for example, to:</p>
+<p>然后对它的值进行修改，例如，将字体大小从22下调至20：</p>
 <div class="highlight-renpy"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">gui</span><span class="o">.</span><span class="n">font_size</span> <span class="o">=</span> <span class="mi">20</span>
 </pre></div>
 </div>
-<p>Note that the default values are often different than what's found in
-this documentation. The default values can changed based on size and
-colors selected for the game, and the values in this file are an example
-of extensive gui customization. It's best to search gui.rpy for define and
-the variable in question - for example, &quot;define gui.font_size&quot;.</p>
-<p>Some of the adjustments below either partially or completely effect image
-files. As a result, the changes only take effect when the image files
-themselves are updated, which can be done by choosing &quot;Change GUI&quot; in
-the launcher, and telling it to regenerate image files. (But note that
-doing so will overwrite any image files you have already modified.)</p>
-<p>You may want to consider waiting until your game is nearly complete before
-customizing gui.rpy in this way. While old gui.rpys will work in newer
-Ren'Py versions, newer gui.rpys may have features and fixes that older
-versions lack. Customizing the gui early may make it harder to take
-advantage of such improvements.</p>
+<p>注意，游戏中的默认值可能与本文档中的例子不同。默认值的大小，可能会随着
+游戏选择不同的尺寸或颜色而改变，文件中列出的值仅作为广泛的GUI定制的一个示例。
+最好搜索gui.rpy文件，并对特定的变量进行定义，例如&quot;define gui.font_size&quot;。</p>
+<p>下面的这些调整，可能会部分或完全地影响图片文件。因此，仅在图片文件本身
+被更新后，这些改变才会生效。这时可以通过在编辑器中点击&quot;Change GUI&quot;来
+重新生成图片文件。（但是，请注意这样也会覆盖你之前已经调整过的图片文件。）</p>
+<p>这种情况下，你也许会考虑直到游戏制作接近完成时，才对gui.rpy进行定制。
+另外，旧版的gui.rpy文件可以在新版的Ren'Py中运行，但新版的gui.rpy文件可能
+对旧版进行了一些内容的修正和补充。如果你定制的是较早版本的GUI，可能无法
+体验到最新版的一些改进。</p>
 <div class="section" id="dialogue">
-<h3>Dialogue<a class="headerlink" href="#dialogue" title="Permalink to this headline"> link</a></h3>
-<p>There are a number of relatively easy customizations that can be performed
-to change how dialogue is displayed to the player. The first is changing
-the textbox.</p>
+<h3>对话<a class="headerlink" href="#dialogue" title="Permalink to this headline"> link</a></h3>
+<p>有很多相对容易的定制方法可以用于改变对话展示给玩家的方式。
+首先是调整文本框。</p>
 <dl class="docutils">
 <dt>gui/textbox.png</dt>
-<dd>This file contains the background of the text window, displayed as part
-of the say screen. While this should be the full width of the game, text
-is only displayed in the central 60% of the screen, with a 20% border
-on either side.</dd>
+<dd>这个文件是文本窗口的背景图像，它作为say视屏的一部分来展示。
+这个图片的宽度应当和游戏窗口相同，因为对话文本仅在中间60%进行展示，
+而两侧各有20%的宽度作为边界。</dd>
 </dl>
-<p>In addition, there are a number of variables that can be customized to change
-dialogue.</p>
+<p>另外，可以通过定制以下变量，以调整对话。</p>
 <dl class="var">
 <dt id="var-gui.text_color">
 define <code class="descname">gui.text_color</code> = &quot;#402000&quot;<a class="headerlink" href="#var-gui.text_color" title="Permalink to this definition"> link</a></dt>
-<dd><p>This sets the color of the dialogue text.</p>
+<dd><p>此变量设置对话文本的颜色。</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-gui.default_font">
 define <code class="descname">gui.default_font</code> = &quot;ArchitectsDaughter.ttf&quot;<a class="headerlink" href="#var-gui.default_font" title="Permalink to this definition"> link</a></dt>
-<dd><p>This sets the font that is used for dialogue text, menus, inputs, and
-other in-game text. The font file should exist in the game directory.</p>
+<dd><p>此变量设置对话文本，以及菜单、输入框等游戏内文本的字体。
+注意，所选的字体文件应当包含于游戏内。</p>
+<p>友情提示：请注意字体的版权，即使是可以免费个人使用的字体，也不代表它是可以免费商用的。
+如果您将要把作品进行发布，请留意这一点。</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-gui.text_size">
 define <code class="descname">gui.text_size</code> = 33<a class="headerlink" href="#var-gui.text_size" title="Permalink to this definition"> link</a></dt>
-<dd><p>Sets the size of the dialogue text. This may need to be increased or
-decreased to fit the selected font in the space alloted.</p>
+<dd><p>此变量设置对话文本的字体大小。
+可以根据所选的字体以及文本占据的空间，对此变量进行调整。</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-gui.name_text_size">
 define <code class="descname">gui.name_text_size</code> = 45<a class="headerlink" href="#var-gui.name_text_size" title="Permalink to this definition"> link</a></dt>
-<dd><p>Sets the size of character names.</p>
+<dd><p>此变量设置角色名的字体大小。</p>
 </dd></dl>
 
-<p>By default, the character name label uses the accent color. The color can
-be easily changed when defining a character:</p>
+<p>默认情况下，角色名标签使用重点色。这个颜色可以在定义角色时改变，例如：</p>
 <div class="highlight-renpy"><div class="highlight"><pre><span></span><span class="k">define</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Character</span><span class="p">(</span><span class="s2">&quot;Eileen&quot;</span><span class="p">,</span> <span class="n">who_color</span><span class="o">=</span><span class="s2">&quot;#104010&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure" id="id5">
 <a class="reference internal image-reference" href="_images/textbox.png"><img alt="_images/textbox.png" src="_images/textbox.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">An example textbox image.</span></p>
+<p class="caption"><span class="caption-text">一个文本框图片的示例</span></p>
 </div>
 <div class="figure" id="id6">
 <a class="reference internal image-reference" href="_images/easy_say_screen.jpg"><img alt="_images/easy_say_screen.jpg" src="_images/easy_say_screen.jpg" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">Dialogue customized using the textbox image and the variable
-settings given above.</span></p>
+<p class="caption"><span class="caption-text">使用文本框图片以及上面的几个变量，对对话进行定制的示例</span></p>
 </div>
 </div>
 <div class="section" id="choice-menus">
-<h3>Choice Menus<a class="headerlink" href="#choice-menus" title="Permalink to this headline"> link</a></h3>
-<p>The choice screen is used by the menu statement to display choices to
-the player. Again, there  are some relatively easy customizations that
-can be performed on the choice screen. The first are the two image
-files:</p>
+<h3>选择菜单<a class="headerlink" href="#choice-menus" title="Permalink to this headline"> link</a></h3>
+<p>选择视屏是为玩家展示选项的菜单。同样地，有相应的简单的定制方法来
+调整选择视屏的展现方式。首先是两个图片文件：</p>
 <dl class="docutils">
 <dt>gui/button/choice_idle_background.png</dt>
-<dd>This image is used as the background of choice buttons that are not
-focused.</dd>
+<dd>这个图片是目前没有被选择的选项的背景图像。</dd>
 <dt>gui/button/choice_hover_background.png</dt>
-<dd>This image is used as the background of choice buttons that are focused.</dd>
+<dd>这个图片是目前正在被选择的选项的背景图像。</dd>
 </dl>
-<p>By default, text is placed in the central 75% of these images. There are
-also a couple of variables that control the color of the text in choice
-buttons.</p>
+<p>默认情况下，选项文本在图像中央的75%进行展示。同样有一些变量可以
+控制选项按钮中的文本。</p>
 <dl class="var">
 <dt id="var-gui.choice_button_text_idle_color">
 define <code class="descname">gui.choice_button_text_idle_color</code> = '#888888'<a class="headerlink" href="#var-gui.choice_button_text_idle_color" title="Permalink to this definition"> link</a></dt>
-<dd><p>The color used for the text of unfocused choice buttons.</p>
+<dd><p>这是目前没有被选择的选项的文字颜色。</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-gui.choice_text_hover_color">
 define <code class="descname">gui.choice_text_hover_color</code> = '#0066cc'<a class="headerlink" href="#var-gui.choice_text_hover_color" title="Permalink to this definition"> link</a></dt>
-<dd><p>The color used for the text of focused choice buttons.</p>
+<dd><p>这是目前正在被选择的选项的文字颜色。</p>
 </dd></dl>
 
-<p>These should suffice for simple customization, where the size of the images
-does not need to be changed. For more complex customizations, check out the
-section on buttons, below.</p>
+<p>在图片的尺寸无需调整的情况下，这些设置应该已经满足了简单的定制需求。
+对于更加复杂的定制，请参考下面的内容。</p>
 <div class="figure" id="id7">
 <a class="reference internal image-reference" href="_images/choice_idle_background.png"><img alt="_images/choice_idle_background.png" src="_images/choice_idle_background.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">An example gui/button/idle_background.png image.</span></p>
+<p class="caption"><span class="caption-text">文件gui/button/idle_background.png的示例。</span></p>
 </div>
 <div class="figure" id="id8">
 <a class="reference internal image-reference" href="_images/choice_hover_background.png"><img alt="_images/choice_hover_background.png" src="_images/choice_hover_background.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">An example gui/button/choice_hover_background.png image.</span></p>
+<p class="caption"><span class="caption-text">文件gui/button/choice_hover_background.png的示例。</span></p>
 </div>
 <div class="figure" id="id9">
 <a class="reference internal image-reference" href="_images/easy_choice_screen.jpg"><img alt="_images/easy_choice_screen.jpg" src="_images/easy_choice_screen.jpg" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">An example of the choice screen, as customized using the images
-and variable settings given above.</span></p>
+<p class="caption"><span class="caption-text">使用图片和上面的几个变量，对选择视屏进行定制的示例。</span></p>
 </div>
 </div>
 <div class="section" id="overlay-images">
-<h3>Overlay Images<a class="headerlink" href="#overlay-images" title="Permalink to this headline"> link</a></h3>
-<p>There are also a pair of overlay images. These are used to darken or
-lighten the background image to make buttons and other user interface
-components more readable. These images are in the overlay directory:</p>
+<h3>覆层图像<a class="headerlink" href="#overlay-images" title="Permalink to this headline"> link</a></h3>
+<p>我们同样支持覆层图像。它们被用于加深或减淡背景图像，来凸显按钮的位置，
+或者增强其他用户交互内容的易读性。这些图像置于overlay目录中：</p>
 <dl class="docutils">
 <dt>gui/overlay/main_menu.png</dt>
-<dd>The overlay used by the main menu screen.</dd>
+<dd>此图片用于主菜单</dd>
 <dt>gui/overlay/game_menu.png</dt>
-<dd>The overlay used by game-menu-like screens, including load, save,
-preferences, about, help, etc. This overlay is selected by the
-screen in question, and is used even when at the main menu.</dd>
+<dd>此图片用于游戏内菜单类视屏，包括载入、保存、设置、游戏信息、帮助页面等。
+这个覆层可以用于特定的视屏，甚至可以在主菜单也应用它。</dd>
 <dt>gui/overlay/confirm.png</dt>
-<dd>The overlay used in the confirm screen to darken the background.</dd>
+<dd>此图片用于确认视屏。通常是为了使背景变暗。</dd>
 </dl>
-<p>Here are a pair of example overlay images, and what the game looks like
-with the overlay images added.</p>
+<p>这里有几个覆层图像的例子，以及应用覆层图像后游戏效果的示例。</p>
 <div class="figure" id="id10">
 <a class="reference internal image-reference" href="_images/main_menu.png"><img alt="_images/main_menu.png" src="_images/main_menu.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">An example gui/overlay/main_menu.png image.</span></p>
+<p class="caption"><span class="caption-text">文件gui/overlay/main_menu.png的示例。</span></p>
 </div>
 <div class="figure" id="id11">
 <a class="reference internal image-reference" href="_images/game_menu.png"><img alt="_images/game_menu.png" src="_images/game_menu.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">An example gui/overlay/game_menu.png image.</span></p>
+<p class="caption"><span class="caption-text">文件gui/overlay/game_menu.png的示例。</span></p>
 </div>
 <div class="figure" id="id12">
 <a class="reference internal image-reference" href="_images/overlay_main_menu.jpg"><img alt="_images/overlay_main_menu.jpg" src="_images/overlay_main_menu.jpg" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">The main menu after changing the overlays.</span></p>
+<p class="caption"><span class="caption-text">改变覆层后的主菜单示例。</span></p>
 </div>
 <div class="figure" id="id13">
 <a class="reference internal image-reference" href="_images/overlay_game_menu.jpg"><img alt="_images/overlay_game_menu.jpg" src="_images/overlay_game_menu.jpg" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">The game menu after changing the overlays.</span></p>
+<p class="caption"><span class="caption-text">改变覆层后的游戏菜单示例。</span></p>
 </div>
 </div>
 <div class="section" id="colors-fonts-and-font-sizes">
-<h3>Colors, Fonts, and Font Sizes<a class="headerlink" href="#colors-fonts-and-font-sizes" title="Permalink to this headline"> link</a></h3>
-<p>There are a number of gui variables that can be used to change the color, font,
-and size of text.</p>
-<p>These variables should generally be set to hexadecimal color
-codes, which are strings of the form "#rrggbb", similar to color codes
-used by web browsers. For example, "#663399" is the code for a shade of
-<a href="http://www.economist.com/blogs/babbage/2014/06/digital-remembrance" style="text-decoration: none; color: rebeccapurple">purple</a>.
-There are many tools online that let you create html color codes, such as
-<a href="http://htmlcolorcodes.com/color-picker/">this one</a>.</p><p>In addition to <a class="reference internal" href="#var-gui.text_color"><code class="xref std std-var docutils literal"><span class="pre">gui.text_color</span></code></a>, <code class="xref std std-var docutils literal"><span class="pre">gui.choice_idle_color</span></code>, and <code class="xref std std-var docutils literal"><span class="pre">gui.choice_hover_color</span></code>,
-documented above, the following variables exist:</p>
+<h3>颜色，字体与字号<a class="headerlink" href="#colors-fonts-and-font-sizes" title="Permalink to this headline"> link</a></h3>
+<p>有很多变量可以用于调整颜色，字体与文本的字体大小。</p>
+<p>这些变量通常应当被设置为形如"#rrggbb"的十六进制颜色码，类似web浏览器的颜色码。
+例如，"#663399"表示的颜色是
+<a href="http://www.economist.com/blogs/babbage/2014/06/digital-remembrance" style="text-decoration: none; color: rebeccapurple">紫色</a>。
+有很多在线工具可以用来生成HTML颜色代码，比如
+<a href="http://htmlcolorcodes.com/color-picker/">这个</a>。</p><p>除了<a class="reference internal" href="#var-gui.text_color"><code class="xref std std-var docutils literal"><span class="pre">gui.text_color</span></code></a>, <code class="xref std std-var docutils literal"><span class="pre">gui.choice_idle_color</span></code>，以及<code class="xref std std-var docutils literal"><span class="pre">gui.choice_hover_color</span></code>和
+之前文档里提到的变量，另外还有一些设置可以参考：</p>
 <dl class="var">
 <dt id="var-gui.accent_color">
 define <code class="descname">gui.accent_color</code> = '#000060'<a class="headerlink" href="#var-gui.accent_color" title="Permalink to this definition"> link</a></dt>
-<dd><p>The accent color is used in many places in the GUI, including titles
-and labels.</p>
+<dd><p>这个重点色应用于GUI的很多地方，包括标题、标签等。</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-gui.idle_color">
 define <code class="descname">gui.idle_color</code> = '#606060'<a class="headerlink" href="#var-gui.idle_color" title="Permalink to this definition"> link</a></dt>
-<dd><p>The color used for most buttons when not focused or selected.</p>
+<dd><p>这个颜色应用于未被选择或没有正在被选择的按钮。</p>
 </dd></dl>
 
 <dl class="var">
